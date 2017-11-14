@@ -1,0 +1,131 @@
+#defaultclass fileName extends Bases.BaseController {
+#default
+#default    constructor() {
+#default        super();
+#default    }
+#default
+#default    index() {
+#default        return (req, res) => {
+#default            res.send("Hi i'm a resource index from " + this.nameController + " ");
+#default        }
+#default    }
+#default
+#default    show() {
+#default        return (req, res) => {
+#default            res.send("Hi i'm a resource show from " + this.nameController + " >> " + + req.params.id + " ");
+#default        }
+#default    }
+#default
+#default    store() {
+#default        return (req, res) => {
+#default            res.send("Hi i'm a resource store from " + this.nameController + " >> " + + JSON.stringify(req.body) + " ");
+#default        }
+#default    }
+#default
+#default    update() {
+#default        return (req, res) => {
+#default            res.send("Hi i'm a resource update from " + this.nameController + " >> " + JSON.stringify(req.params.id) + JSON.stringify(req.body) + " ");
+#default        }
+#default   }
+#default
+#default
+#default    destroy() {
+#default        return (req, res) => {
+#default            res.send("Hi i'm a resource destroy from " + this.nameController + " >> " + + JSON.stringify(req.params.id) + " ");
+#default        }
+#default    }
+#default
+#default}
+#default
+#defaultexport default fileName;
+#default
+#sequelizeclass fileName extends Bases.BaseController {
+#sequelize
+#sequelize    constructor() {
+#sequelize        super();
+#sequelize    }
+#sequelize
+#sequelize    index() {
+#sequelize        return (req, res) => {
+#sequelize            res.send("Hi i'm a resource index from " + this.nameController + " ");
+#sequelize        }
+#sequelize    }
+#sequelize
+#sequelize    show() {
+#sequelize        return (req, res) => {
+#sequelize            res.send("Hi i'm a resource show from " + this.nameController + " >> " + + req.params.id + " ");
+#sequelize        }
+#sequelize    }
+#sequelize
+#sequelize    store() {
+#sequelize        return (req, res) => {
+#sequelize            res.send("Hi i'm a resource store from " + this.nameController + " >> " + + JSON.stringify(req.body) + " ");
+#sequelize        }
+#sequelize    }
+#sequelize
+#sequelize    update() {
+#sequelize        return (req, res) => {
+#sequelize            res.send("Hi i'm a resource update from " + this.nameController + " >> " + JSON.stringify(req.params.id) + JSON.stringify(req.body) + " ");
+#sequelize        }
+#sequelize   }
+#sequelize
+#sequelize
+#sequelize    destroy() {
+#sequelize        return (req, res) => {
+#sequelize            res.send("Hi i'm a resource destroy from " + this.nameController + " >> " + + JSON.stringify(req.params.id) + " ");
+#sequelize        }
+#sequelize    }
+#sequelize
+#sequelize}
+#sequelize
+#sequelizeexport default fileName;
+#sequelize
+#mongoritoimport nameRepository from '../repositories/nameRepository';
+#mongorito
+#mongoritoclass fileName extends Bases.BaseController {
+#mongorito
+#mongorito    constructor() {
+#mongorito        super();
+#mongorito        this.instanceRepository = new nameRepository();
+#mongorito    }
+#mongorito
+#mongorito    index() {
+#mongorito        return async (req, res) => {
+#mongorito            let a = await this.instanceRepository.index();
+#mongorito            res.send(a);
+#mongorito        }
+#mongorito    }
+#mongorito
+#mongorito    show() {
+#mongorito        return async (req, res) => {
+#mongorito            let a = await this.instanceRepository.show(req.params.id);
+#mongorito            res.send(a);
+#mongorito        }
+#mongorito    }
+#mongorito
+#mongorito    store() {
+#mongorito        return async (req, res) => {
+#mongorito            let a = await this.instanceRepository.store(req.body);
+#mongorito            res.send(a);
+#mongorito        }
+#mongorito    }
+#mongorito
+#mongorito    update() {
+#mongorito        return async (req, res) => {
+#mongorito            let a = await this.instanceRepository.update(req.params.id, req.body);
+#mongorito            res.send(a);
+#mongorito        }
+#mongorito    }
+#mongorito
+#mongorito
+#mongorito    destroy() {
+#mongorito        return async (req, res) => {
+#mongorito            let a = await this.instanceRepository.delete(req.params.id);
+#mongorito            res.send(a);
+#mongorito        }
+#mongorito    }
+#mongorito
+#mongorito}
+#mongorito
+#mongoritoexport default fileName;
+#mongorito

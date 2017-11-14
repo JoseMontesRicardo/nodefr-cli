@@ -1,0 +1,55 @@
+{
+  "name": "nodefr-cli",
+  "version": "1.0.0",
+  "description": "cli interface for NodeFR",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "copy": "babel src --out-dir dist --copy-files",
+    "compile": "babel --compact=true src --out-dir dist --copy-files",
+    "build": "npm run compile && npm run copy",
+    "generate": "nodemon index.js -g repository hola --exec babel-node",
+    "resource": "nodemon index.js -g resource hola --exec babel-node"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoseMontesRicardo/nodefr-cli.git"
+  },
+  "keywords": [
+    "cli",
+    "NodeFR"
+  ],
+  "author": "jose",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JoseMontesRicardo/nodefr-cli/issues"
+  },
+  "homepage": "https://github.com/JoseMontesRicardo/nodefr-cli#readme",
+  "dependencies": {
+    "app-root-dir": "^1.0.2",
+    "babel-polyfill": "^6.26.0",
+    "chalk": "^2.3.0",
+    "cli": "^1.0.1",
+    "download-git-repo": "^1.0.1",
+    "exec": "^0.2.1",
+    "figlet": "^1.2.0",
+    "find-root": "^1.1.0",
+    "fs": "0.0.1-security",
+    "line-by-line": "^0.1.5",
+    "lodash": "^4.17.4",
+    "path": "^0.12.7",
+    "pluralize": "^7.0.0",
+    "replace": "^0.3.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-plugin-transform-regenerator": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "nodemon": "^1.12.1"
+  },
+  "bin": {
+    "nodefr-cli": "./dist/index.js"
+  }
+}

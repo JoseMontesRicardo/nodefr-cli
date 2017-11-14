@@ -1,0 +1,17 @@
+'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _classCallCheck2=require('babel-runtime/helpers/classCallCheck');var _classCallCheck3=_interopRequireDefault(_classCallCheck2);var _createClass2=require('babel-runtime/helpers/createClass');var _createClass3=_interopRequireDefault(_createClass2);var _lodash=require('lodash');var _lodash2=_interopRequireDefault(_lodash);var _findRoot=require('find-root');var _findRoot2=_interopRequireDefault(_findRoot);var _pluralize=require('pluralize');var _pluralize2=_interopRequireDefault(_pluralize);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}var Generator=function(){function Generator(name,layer){(0,_classCallCheck3.default)(this,Generator);this.name=name;this.layer=layer;}/**
+     * 
+     */(0,_createClass3.default)(Generator,[{key:'getLayerFolder',/**
+     * 
+     */value:function getLayerFolder(){var resourcePath=arguments.length>0&&arguments[0]!==undefined?arguments[0]:false;var srcPath=''+(0,_findRoot2.default)(process.cwd())+this.src;var currentPath='';switch(this.layer){case'route':currentPath=resourcePath?''+resourcePath:srcPath+'/'+(0,_pluralize2.default)(this.layer);break;case'model':currentPath=resourcePath?resourcePath+'/'+(0,_pluralize2.default)(this.layer):srcPath+'/'+(0,_pluralize2.default)(this.layer);break;case'controller':currentPath=resourcePath?resourcePath+'/'+(0,_pluralize2.default)(this.layer):srcPath+'/'+(0,_pluralize2.default)(this.layer);break;case'repository':currentPath=resourcePath?resourcePath+'/'+(0,_pluralize2.default)(this.layer):srcPath+'/'+(0,_pluralize2.default)(this.layer);break;default:break;}return currentPath;}/**
+     * 
+     */},{key:'getResourceFolder',value:function getResourceFolder(){var srcPath=''+(0,_findRoot2.default)(process.cwd())+this.src;return srcPath+'/'+this.resourceFolderName;}/**
+     * 
+     */},{key:'getPath',value:function getPath(){var path=arguments.length>0&&arguments[0]!==undefined?arguments[0]:false;var layerFolder=null;if(!path){layerFolder=this.getLayerFolder();}else{layerFolder=path;}return layerFolder+'/'+this.fileName+this.ext;}/**
+     * 
+     */},{key:'getResourcePath',value:function getResourcePath(){var layerFolder=this.getResourceFolder();return layerFolder+'/'+this.fileName+this.ext;}/**
+     * 
+     */},{key:'getSuffix',value:function getSuffix(){var currentSuffix='';switch(this.layer){case'route':currentSuffix=_lodash2.default.upperFirst(this.layer);break;case'model':currentSuffix=_lodash2.default.upperFirst(this.layer);break;case'controller':currentSuffix=_lodash2.default.upperFirst(this.layer);break;case'repository':currentSuffix=_lodash2.default.upperFirst(this.layer);break;case'resource':currentSuffix=_lodash2.default.upperFirst(this.layer);break;default:break;}return currentSuffix;}/**
+     * 
+     */},{key:'src',get:function get(){return'/src';}/**
+     * 
+     */},{key:'fileName',get:function get(){return _lodash2.default.upperFirst(_lodash2.default.camelCase(this.name+this.getSuffix()));}},{key:'resourceFolderName',get:function get(){return _lodash2.default.camelCase(this.name+this.getSuffix());}},{key:'ext',get:function get(){if(this.layer==='route'||this.layer==='controller'||this.layer==='model'||this.layer==='repository'){return'.js';}}}]);return Generator;}();exports.default=Generator;

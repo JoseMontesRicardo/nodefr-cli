@@ -1,0 +1,144 @@
+#defaultimport nameModel from '../models/nameModel';
+#defaultimport Mongodb from 'mongodb';
+#default
+#defaultclass fileName {
+#default
+#default    constructor() {
+#default    }
+#default
+#default    index(query = {}) {
+#default        return new Promise(async (resolve, reject) => {
+#default            try {
+#default                resolve(await nameModel.find(query));
+#default            } catch (error) {
+#default                console.log(error);
+#default                reject(error);
+#default            }
+#default        });
+#default    }
+#default
+#default    show(id) {
+#default        return new Promise(async (resolve, reject) => {
+#default            try {
+#default                resolve(await nameModel.findOne({ _id: Mongodb.ObjectID(id) }));
+#default            } catch (error) {
+#default                console.log(error);
+#default                reject(error);
+#default            }
+#default        });
+#default    }
+#default
+#default    store(data) {
+#default        return new Promise(async (resolve, reject) => {
+#default            try {
+#default                let newData = new nameModel(data);
+#default                resolve(await newData.save());
+#default            } catch (error) {
+#default                console.log(error);
+#default                reject(error);
+#default            }
+#default        });
+#default    }
+#default
+#default    update(id, data) {
+#default        return new Promise(async (resolve, reject) => {
+#default            try {
+#default                let element = await nameModel.findOne({ _id: Mongodb.ObjectID(id) })
+#default                console.log(id);
+#default                element.set(data);
+#default                resolve(await element.save());
+#default            } catch (error) {
+#default                console.log(error);
+#default                reject(error);
+#default            }
+#default        });
+#default    }
+#default
+#default
+#default    delete(id) {
+#default        return new Promise(async (resolve, reject) => {
+#default            try {
+#default                resolve(await nameModel.remove({ _id: Mongodb.ObjectID(id) }));
+#default            } catch (error) {
+#default                console.log(error);
+#default                reject(error);
+#default            }
+#default        });
+#default    }
+#default
+#default}
+#default
+#defaultexport default fileName;
+#default
+#mongoritoimport nameModel from '../models/nameModel';
+#mongoritoimport Mongodb from 'mongodb';
+#mongorito
+#mongoritoclass fileName {
+#mongorito
+#mongorito    constructor() {
+#mongorito    }
+#mongorito
+#mongorito    index(query = {}) {
+#mongorito        return new Promise(async (resolve, reject) => {
+#mongorito            try {
+#mongorito                resolve(await nameModel.find(query));
+#mongorito            } catch (error) {
+#mongorito                console.log(error);
+#mongorito                reject(error);
+#mongorito            }
+#mongorito        });
+#mongorito    }
+#mongorito
+#mongorito    show(id) {
+#mongorito        return new Promise(async (resolve, reject) => {
+#mongorito            try {
+#mongorito                resolve(await nameModel.findOne({ _id: Mongodb.ObjectID(id) }));
+#mongorito            } catch (error) {
+#mongorito                console.log(error);
+#mongorito                reject(error);
+#mongorito            }
+#mongorito        });
+#mongorito    }
+#mongorito
+#mongorito    store(data) {
+#mongorito        return new Promise(async (resolve, reject) => {
+#mongorito            try {
+#mongorito                let newData = new nameModel(data);
+#mongorito                resolve(await newData.save());
+#mongorito            } catch (error) {
+#mongorito                console.log(error);
+#mongorito                reject(error);
+#mongorito            }
+#mongorito        });
+#mongorito    }
+#mongorito
+#mongorito    update(id, data) {
+#mongorito        return new Promise(async (resolve, reject) => {
+#mongorito            try {
+#mongorito                let element = await nameModel.findOne({ _id: Mongodb.ObjectID(id) })
+#mongorito                console.log(id);
+#mongorito                element.set(data);
+#mongorito                resolve(await element.save());
+#mongorito            } catch (error) {
+#mongorito                console.log(error);
+#mongorito                reject(error);
+#mongorito            }
+#mongorito        });
+#mongorito    }
+#mongorito
+#mongorito
+#mongorito    delete(id) {
+#mongorito        return new Promise(async (resolve, reject) => {
+#mongorito            try {
+#mongorito                resolve(await nameModel.remove({ _id: Mongodb.ObjectID(id) }));
+#mongorito            } catch (error) {
+#mongorito                console.log(error);
+#mongorito                reject(error);
+#mongorito            }
+#mongorito        });
+#mongorito    }
+#mongorito
+#mongorito}
+#mongorito
+#mongoritoexport default fileName;
+#mongorito

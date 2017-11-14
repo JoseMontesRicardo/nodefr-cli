@@ -1,0 +1,49 @@
+#defaultclass fileName extends Bases.BaseRoute {
+#default
+#default    /**
+#default    * construct for fileName
+#default    * 
+#default    * @param {json} router instance of ExpressJS router 
+#default    */
+#default    constructor(app) {
+#default        super(app);
+#default    }
+#default
+#default    /**
+#default    * main method, init all routes for fileName here!
+#default    */
+#default    routesInit() {
+#default
+#default        this.get('/' + this.nameRoute, async (req, res) => { res.send({ 'route': 'Hi from ' + this.nameRoute + '' }); });
+#default        this.post('/' + this.nameRoute, async (req, res) => { res.send({ 'route': 'Hi from ' + this.nameRoute + '' }); });
+#default        this.put('/' + this.nameRoute, async (req, res) => { res.send({ 'route': 'Hi from ' + this.nameRoute + '' }); });
+#default        this.patch('/' + this.nameRoute, async (req, res) => { res.send({ 'route': 'Hi from ' + this.nameRoute + '' }); });
+#default        this.delete('/' + this.nameRoute, async (req, res) => { res.send({ 'route': 'Hi from ' + this.nameRoute + '' }); });
+#default
+#default    }
+#default
+#default}
+#default
+#defaultexport default fileName;
+#default
+#mongoritoimport controllerName from './controllers/controllerName';
+#mongorito    
+#mongoritoclass fileName extends Bases.BaseRoute {
+#mongorito        
+#mongorito    /**
+#mongorito    * construct for fileName
+#mongorito    * 
+#mongorito    * @param {json} router instance of ExpressJS router 
+#mongorito    */
+#mongorito    constructor(app) {
+#mongorito        super(app);
+#mongorito    }
+#mongorito
+#mongorito    resourceInit(){
+#mongorito      this.resource(this.nameRoute, controllerName);
+#mongorito    }
+#mongorito
+#mongorito}
+#mongorito
+#mongoritoexport default fileName;
+#mongorito

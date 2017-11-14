@@ -1,0 +1,73 @@
+#defaultimport Sequelize from 'sequelize';
+#default
+#defaultclass fileName extends Bases.BaseModel {
+#default
+#default    /**
+#default     * constructor for fileName
+#default     * 
+#default     * @param {Boolean} sync sincronization switch
+#default     */
+#default    constructor(sync = true) {
+#default        super(sync);
+#default    }
+#default
+#default
+#default    get connection() {
+#default        return 'default';
+#default    }
+#default
+#default
+#default    /**
+#default     * Define your schema here!
+#default     */
+#default    schema() {
+#default        return {};
+#default    }
+#default
+#default}
+#default
+#defaultexport default fileName;
+#default
+#sequelizeimport Sequelize from 'sequelize';
+#sequelize
+#sequelizeclass fileName extends Bases.BaseModel {
+#sequelize
+#sequelize    /**
+#sequelize     * constructor for fileName
+#sequelize     * 
+#sequelize     * @param {Boolean} sync sincronization switch
+#sequelize     */
+#sequelize    constructor(sync = true) {
+#sequelize        super(sync);
+#sequelize    }
+#sequelize
+#sequelize
+#sequelize    get connection() {
+#sequelize        return 'default';
+#sequelize    }
+#sequelize
+#sequelize
+#sequelize    /**
+#sequelize     * Define your schema here!
+#sequelize     */
+#sequelize    schema() {
+#sequelize        return {};
+#sequelize    }
+#sequelize
+#sequelize}
+#sequelize
+#sequelizeexport default fileName;
+#sequelize
+#mongoritoclass fileName extends Bases.BaseModelMongorito {
+#mongorito
+#mongorito    constructor(data = {}) {
+#mongorito        super(data);
+#mongorito    }
+#mongorito
+#mongorito    get connection () {
+#mongorito        return 'connection2';
+#mongorito    }
+#mongorito}
+#mongorito
+#mongoritoexport default fileName;
+#mongorito
